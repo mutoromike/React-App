@@ -10,12 +10,11 @@ function CoursesPage() {
     }, []) // Passing the empty array tells react that it should only run the effect once
 
     return (
+        <>
         <h2>Courses</h2>
         <CourseList courses={courses} />
+        </>
     );
-
-
-
 }
 
 export default CoursesPage;
