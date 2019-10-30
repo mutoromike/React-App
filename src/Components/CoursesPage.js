@@ -1,50 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { getCourses } from "../api/courseApi";
+import CourseList from './CourseList'
 
-class CoursesPage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            courses: []
-        }
-    }
+function CoursesPage() {
+    const [courses, setCourses] = useState([])
 
-    componentDidMount() {
-        // .then() is called to handle the promise
-        getCourses().then(courses => {
-            this.setState({ courses: courses }) //setState only updates the called properties
-        })
-    }
-    render() {
-        return (
-            <div>
-                <h2>Courses</h2>
+    useEffect(() => {
+        getCourses().then(_courses => setCourses(_courses)) //setState only updates the called properties
+    }, []) // Passing the empty array tells react that it should only run the effect once
 
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th>Title</th>
-                            <th>Author ID</th>
-                            <th>Category</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.courses.map(course => {
-                            return (
-                                <tr key={course.id}>
-                                    <td>{course.title}</td>
-                                    <td>{course.authorId}</td>
-                                    <td>{course.category}</td>
-                                </tr>
-                            )
-                        })}
-
-                    </tbody>
-                </table>
-            </div>
-        );
-    }
-
+    return (
+        <>
+        <h2>Courses</h2>
+        <CourseList courses={courses} />
+        </>
+    );
 }
 
 export default CoursesPage;
