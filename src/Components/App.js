@@ -16,7 +16,9 @@ function App() {
                 <Route path="/about" component={AboutPage} />
                 <Route path="/courses" component={CoursesPage} />
                 <Redirect from="/about-page" to="/about" />
-                <Route path="/course/:slug" component={ManageCoursePage} />
+                <Route path="/course/:slug" component={ManageCoursePage} /> 
+                {/* the route with the slug is on top so that the slug is called, o/wse, it would never match */}
+                <Route path="/course" component={ManageCoursePage} />
                 <Route component={NotFoundPage} />
             </Switch>
 
