@@ -16,7 +16,7 @@ function TextInput(props) {
                     name={props.name}
                     onChange={props.onChange}
                     className="form-control"
-                    value={props.course.title}
+                    value={props.title}
                 />
             </div>
             {/* implementing logical AND below: */}
