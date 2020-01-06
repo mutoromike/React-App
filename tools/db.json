@@ -72,11 +72,11 @@
     },
     {
       "id": 11,
-      "slug": "theatrics",
-      "title": "Theatrics",
+      "slug": "politics",
+      "title": "Politics",
       "authorId": 2,
-      "category": "Acting",
-      "createdAt": 1578309285661
+      "category": "Siasa",
+      "createdAt": 1578309567054
     }
   ],
   "authors": [
